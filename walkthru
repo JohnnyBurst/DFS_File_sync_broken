@@ -1,0 +1,31 @@
+1. You have validated offline files and folders is broken - files are not syncing properly
+
+2. You have either made a backup of user data on the root of C:\ or verified all data is on the destination server
+- If you are not sure what all is in the offline cache, then look by viewing the offline files using sync center
+
+If you delete the CSC folder without backing up the users documents, desktop, and favorites to the local C drive or backing up the whole CSC folder you could lose data that hadn't been synced to the server.
+
+3. Disable Offline Files and Folders
+- Open the Start menu > type Regedit > on Registry Editor shift + right-click > run as different user > use ADM account
+- File > import > browse to Disable_Offline_Files.reg
+
+4. Reboot the system
+
+5. Have the user login > run CMD as ADM and run command to take ownership and delete the CSC folder and subfolders/files
+- Run takeown /r /f c:\windows\csc - Y for yes to write permissions
+- Then rd /s c:\windows\csc - Y to confirm delete
+
+6. Enable Offline Files and Folders
+
+- Open Start > type Regedit > on Registry Editor shift + right-click > run as different user > use ADM account
+- File > import > browse to Enable_Offline_Files.reg
+
+7. Reboot the system
+
+8. Login as the user
+
+10. Perform a gpupdate /force > type Y for yes to logout of the system
+
+11. Have the user login and verify they can do what they need with their data by syncing a test file or two - depending on how much data the user has will determine the amount of time needed to fully re-sync the data from the server - if you see a grey x on files the data is still syncing with offline files and folders
+
+LikeBe
